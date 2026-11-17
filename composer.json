@@ -1,0 +1,71 @@
+{
+    "name": "jeffersongoncalves/laravel-gdpr-dpia",
+    "description": "GDPR data protection impact assessments for Laravel (Art. 35): risks scored by likelihood and impact with LINDDUN threats, mitigations and residual risk, DPO advice, approval, review and the Art. 36 prior consultation flag.",
+    "keywords": [
+        "laravel",
+        "gdpr",
+        "dpia",
+        "impact-assessment",
+        "linddun",
+        "risk",
+        "privacy"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-gdpr-dpia",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jefferson Simão Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\GdprDpia\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\GdprDpia\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\GdprDpia\\GdprDpiaServiceProvider"
+            ],
+            "aliases": {
+                "GdprDpia": "JeffersonGoncalves\\GdprDpia\\Facades\\GdprDpia"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
